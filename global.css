@@ -1,0 +1,435 @@
+/*RESET SPACINGS*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*COLORS*/
+:root {
+  --red: #ED0707;
+}
+
+/*FONT WEIGHTS =*/
+:root {
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fw-medium {
+  font-weight: var(--fw-medium);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+/*FONT SIZES*/
+:root {
+  --fs-sm: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 2rem;
+  --fs-xl: 3rem;
+  --fs-xxl: 5rem;
+}
+
+.fs-xxl {
+  font-size: var(--fs-xxl);
+}
+
+/*TEXT*/
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.text-baseline {
+  transform: translateY(-0.2ch);
+  letter-spacing: 0.3ch;
+}
+
+/*TOP*/
+#top {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+/*HEADER*/
+#header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+    padding: 5px 0; /*MINIMAL VERTICAL PADDING*/
+    overflow: hidden;
+}
+
+#header .border {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /*VERTICALLY CENTER*/
+    z-index: 2;
+    pointer-events: none;
+}
+
+/*RED LINE*/
+#header .border::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0.75rem;
+  background: var(--red);
+  z-index: 2;
+}
+
+/*RED CIRCLE*/
+#header .border::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  background: var(--red);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* STACKS SWISS > BORDER > PUNK*/
+#header p:first-of-type,
+#header > p:first-of-type {
+  position: relative;
+  z-index: 1;
+}
+
+#header p:nth-of-type(2),
+#header > p:nth-of-type(2) {
+  position: relative;
+  z-index: 3;
+}
+
+/*NAV*/
+nav {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.25rem;
+    /*PREVENT LIST FROM BECOMING COLUMN*/
+    flex-wrap: nowrap;
+    min-width: 0;
+    padding: 0.6rem 20px;
+    position: relative; /*TO POSITION DECO BOXES*/
+    overflow: hidden;
+}
+
+/*MAKE LIST HORIZONTAL*/
+nav ul,
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+}
+
+nav a {
+    display: inline-block;
+}
+
+/*DECO BOXES*/
+.deco-boxes {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0;
+  align-items: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.deco-boxes .box {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0; /* square */
+  border: 1px solid grey;
+  display: block;
+}
+
+/*HERO*/
+.hero {
+    background: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    min-height: 60vh;
+    background-image: url('public/images/hero.png');
+    background-size: cover;
+    background-position: center center;
+    padding: 3rem 0;
+}
+
+.hero > span {
+  padding: 2rem 0;
+  color: black;
+  background-color: white;
+}
+
+.hero > span.align-bottom {
+  align-self: flex-end;
+}
+
+.hero > .tilt-warp {
+    font-size: 2rem;
+}
+
+.hero  > span:last-of-type{
+  background-color: black;
+  color: white;
+  padding: 0;
+}
+
+/*ABOUT*/
+#about > .grid {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 0 2.5rem;
+  align-items: stretch;
+}
+
+#about > .grid > div {
+  padding: 1rem;
+  flex: 1; /*EQUAL SIZE COLS*/
+  border: 1px solid black;
+  border-top: none;
+  position: relative;
+}
+
+#about > .grid > div > p {
+  padding: 6rem 1rem 1rem 1rem; /*TRBL*/
+  hyphens: auto;
+}
+
+#about > .grid > div > h1 {
+  padding: 1rem;
+}
+
+/*TEXT - NEW WAVE*/
+#about > .grid > div:first-of-type > h2 {
+  font-size: 4rem;
+  position: absolute;
+  top: 0.25ch;
+  left: -0.5ch;
+  width: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: 0.1ch;
+}
+
+/*TEXT - ABOUT*/
+#about > .grid > div:first-of-type > h2 > span {
+  display: inline-block;
+  transform: rotate(270deg);
+}
+
+#about > .grid > div:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+#about > .grid > div:last-of-type > h1 > span.xxl {
+  font-size: 7rem;
+}
+#about > .grid > div:last-of-type > h1 > span.xl {
+  font-size: 6rem;
+}
+#about > .grid > div:last-of-type > h1 > span.l {
+  font-size: 5rem;
+}
+#about > .grid > div:last-of-type > h1 > span.m {
+  font-size: 4rem;
+}
+#about > .grid > div:last-of-type > h1 > span.s {
+  font-size: 3rem;
+}
+#about > .grid > div:last-of-type > h1 > span.xs {
+  font-size: 2rem;
+}
+
+/*KEY FIGURES*/
+#key-figures > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 2rem;
+  gap: 2rem;
+}
+/*TEXT - KEY FIGURES*/
+#key-figures div.grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+}
+
+#key-figures div.grid > div {
+  display: flex;
+  align-items: flex-start;
+}
+
+#key-figures div.grid > div > span {
+  display: inline-block;
+  align-self: flex-start;
+  line-height: 1;
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  transform: translateY(var(--cap-shift, 0)); /*TO SHIFT LETTERS*/
+}
+
+#key-figures div.grid > div > span.l {
+  font-size: 10rem;
+  --cap-shift: 0;
+}
+
+#key-figures div.grid > div > span.m {
+  font-size: 9rem;
+  --cap-shift: 0.15rem;
+}
+
+#key-figures div.grid > div > span.s {
+  font-size: 8rem;
+  --cap-shift: 0.3rem;
+}
+
+#key-figures div.grid > div > span.xs {
+  font-size: 7rem;
+  --cap-shift: 0.45rem;
+}
+
+/* HALFTONE */
+#key-figures .halftone {
+  position: relative; /*TO POSITION HALFTONE*/
+  overflow: hidden; /* clip overlay to image area */
+  isolation: isolate;
+  --ht-spacing: 6px;   /* smaller dots by default */
+  --ht-opacity: 0.85;
+  --ht-intensity: 0.95;
+}
+
+#key-figures .halftone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#key-figures div.grid > div > span.flip {
+  transform: translateY(var(--cap-shift, 0)) scaleX(-1);
+}
+
+/*TEXT- FIGURES*/
+#key-figures div.grid > div:nth-child(3) > span {
+  font-size: calc(10rem/6);
+}
+
+#key-figures div.grid > div:nth-child(3) > span {
+  transform: translateY(-0.5ch) translateX(0.5ch);
+}
+
+#key-figures .red {
+  color: var(--red);
+}
+
+/*CREATING HALFTONE EFFECT*/
+#key-figures .halftone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0,0,0,var(--ht-opacity)) 35%, rgb(143, 143, 143) 36%);
+  background-size: var(--ht-spacing) var(--ht-spacing);
+  background-position: 0 0;
+  mix-blend-mode: overlay;
+  opacity: var(--ht-intensity);
+  transform: translateZ(0);
+}
+
+/*FALLBACK*/
+.halftone {
+  background-image: none;
+}
+
+#key-figures > div > div.person {
+  flex: 1;
+}
+
+#key-figures > div > div.person h2 {
+  padding-top: 1ch;
+}
+
+#key-figures > div > div.person:last-of-type {
+  padding-right: 0.5rem;
+}
+
+#key-figures > div > div.person img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+#key-figures > div > div.person h2 {
+  padding-bottom: 0.25rem;
+}
+
+#key-figures #info {
+  padding-top: 0;
+  padding-left: 3rem;
+}
+
+#key-figures #info p {
+  hyphens: auto;
+  text-align: justify;
+}
+
+#key-figures #info div.tilt {
+  float: left;
+  width: 100px;
+  height: 100px;
+  shape-outside: polygon(0 0, 100% 0, 0% 100%);
+}
