@@ -8,6 +8,10 @@
 /*SMOOTH SCROLL BEHAVIOR*/
 html { scroll-behavior: smooth; }
 
+body {
+  overflow-x: hidden;
+}
+
 /*COLORS*/
 :root {
   --red: #ED0707;
@@ -562,4 +566,153 @@ nav a:hover {
 #footer a:hover {
   color: var(--red);
   text-decoration: underline;
+}
+
+/* -----------------------
+   Responsive breakpoints
+   ----------------------- */
+
+/* Tablet and small laptops */
+@media (max-width: 1024px) {
+  /* header/nav */
+  #header { font-size: 2.2rem; }
+  nav { gap: 1rem; padding: 0.5rem 12px; }
+  .deco-boxes .box { width: 2rem; height: 2rem; }
+
+  /* hero */
+  .hero { min-height: 45vh; padding: 2rem 0; }
+  .hero > .tilt-warp { font-size: 1.6rem; }
+  .hero > .unbounded.fs-xxl { font-size: 3.6rem; }
+
+  /* about -> stack columns into two where suitable */
+  #about > .grid { flex-wrap: wrap; gap: 1rem; }
+  #about > .grid > div { flex: 1 1 45%; padding: 0.75rem; }
+
+  /* scale NEW WAVE headline to fit viewport width on tablets */
+  #about > .grid > div:first-of-type > h2 {
+    font-size: calc(100vw / 11);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* make the 'ABOUT' vertical headline horizontal on tablet and center it */
+  #about > .grid > div.righteous.text-vertical {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    display: block;
+    text-align: center;
+  }
+  #about > .grid > div.righteous.text-vertical h1,
+  #about > .grid > div.righteous.text-vertical h1 > span {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    display: inline-block;
+  }
+
+  /* key figures: stack person images and content into vertical flow */
+  #key-figures > div { flex-direction: column; padding: 1.5rem; }
+  #key-figures > div > div.person { width: 100%; }
+  #key-figures .content { padding-left: 1.5rem; padding-right: 1rem; }
+
+  /* history grid: 3 -> 2 columns */
+  #history { padding: 1.5rem; }
+  #history .grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  #history .grid > div { aspect-ratio: 1 / 1; }
+  #history .grid > div > span { font-size: calc(100vw/4.3); }
+
+  /* hide history grid cells on tablets */
+  #history .grid > div:nth-last-of-type(2), #history .grid > div:nth-last-of-type(3) {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* footer adjustments */
+  #footer p { font-size: clamp(1.6rem, 4.5vw, 2.8rem); }
+  #footer > div { padding: 1rem; }
+  #footer > div > p {
+    bottom: 1.15ch;
+    left: 0.75ch;
+  }
+
+}
+
+/* Phones / small devices */
+@media (max-width: 640px) {
+  /* header/nav compact */
+  #header { font-size: 1.6rem; }
+  nav { gap: 0.75rem; padding: 0.4rem 8px; }
+  .deco-boxes { display: none; }
+
+  /* hero becomes single column */
+  .hero { flex-direction: column; min-height: 38vh; padding: 1.5rem 0; gap: 0.5rem; }
+  .hero > span { padding: 1rem 0; }
+  .hero > .tilt-warp { font-size: 1.25rem; }
+  .hero > .unbounded.fs-xxl {
+    /* scale Swiss Style to fit narrow screens */
+    font-size: calc(100vw / 8.5);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* about stacks fully */
+  #about > .grid { flex-direction: column; padding: 0 1rem; }
+  #about > .grid > div { flex: 1 1 auto; padding: 0.5rem; }
+  /* reduce top padding on about paragraphs for small screens */
+  #about > .grid > div > p {
+    padding: 3em 0.75rem 0.5rem 0.75rem; /* top right bottom left */
+  }
+
+  /* make the 'ABOUT' vertical headline horizontal on phones and center it */
+  #about > .grid > div.righteous.text-vertical {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    display: block;
+    text-align: center;
+  }
+  #about > .grid > div.righteous.text-vertical h1,
+  #about > .grid > div.righteous.text-vertical h1 > span {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    transform: none;
+    display: inline-block;
+  }
+
+  /* scale NEW WAVE headline to fit viewport width on phones */
+  #about > .grid > div:first-of-type > h2 {
+    font-size: calc(100vw / 8.5);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* key-figures vertical single column */
+  #key-figures > div { padding: 1rem; }
+  #key-figures > div > div.person { margin-bottom: 1rem; }
+  #key-figures .content { padding-left: 0.9rem; }
+
+  /* history -> single column */
+  #history { padding: 1rem; }
+  #history .grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  #history .grid > div { aspect-ratio: auto; height: auto; }
+  #history .grid > div > span { font-size: calc(100vw/3.5); }
+
+  /* hide history grid cells on phones */
+  #history .grid > div:nth-last-of-type(2), #history .grid > div:nth-last-of-type(3) {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* footer compact */
+  #footer { gap: 0.25rem; }
+  #footer p { font-size: clamp(1.2rem, 6vw, 2rem); }
+  #footer > div > div { margin-bottom: 0.5rem; }
+  #footer > p { top: 0.5rem;}
+  #footer > div > p {
+    bottom: 2.35rem;
+    left: 0.9ch;
+  }
 }
