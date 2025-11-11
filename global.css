@@ -164,6 +164,7 @@ nav {
 /*MAKE LIST HORIZONTAL*/
 nav ul,
 nav > ul {
+  text-transform: lowercase;
     display: flex;
     flex-direction: row;
     align-items: center;
