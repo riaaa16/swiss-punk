@@ -60,6 +60,16 @@ html { scroll-behavior: smooth; }
   letter-spacing: 0.3ch;
 }
 
+mark { 
+  color: white;
+  background-color: black;
+  display: inline-block;
+  padding: 0.15rem;
+  line-height: 1;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 /*TOP*/
 #top {
   position: sticky;
@@ -251,6 +261,7 @@ nav a:hover {
 #about > .grid > div > p {
   padding: 6rem 1rem 1rem 1rem; /*TRBL*/
   hyphens: auto;
+  text-align: justify;
 }
 
 #about > .grid > div > h1 {
@@ -429,7 +440,8 @@ nav a:hover {
 
 #key-figures .content {
   padding-top: 0;
-  padding-left: 3rem;
+  padding-left: 2.5rem;
+  margin-right: 0.5rem;
 }
 
 #key-figures .content p {
@@ -490,6 +502,13 @@ nav a:hover {
   color: var(--red);
 }
 
+#history .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
 /*FOOTER*/
 #footer {
   padding: 0;
@@ -500,6 +519,7 @@ nav a:hover {
   align-items: stretch;
   gap: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 #footer p {
@@ -520,6 +540,7 @@ nav a:hover {
 #footer > div > p {
   position: relative;
   bottom: 0.95ch;
+  left: 0.5ch;
 }
 
 #footer > div {
